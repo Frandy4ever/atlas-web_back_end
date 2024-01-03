@@ -132,3 +132,4 @@ dist
 
 .history
 *.json
+./ES6_basics/*.json
