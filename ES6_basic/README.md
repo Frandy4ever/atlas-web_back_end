@@ -1,1 +1,1 @@
-![ES6 Basics](./images/ES6-Basics.jpg)
+![ES6 Basics](./images/ES6_Basics.jpg)

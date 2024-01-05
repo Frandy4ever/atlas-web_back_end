@@ -1,1 +1,1 @@
-![JavaScript BackEnd](./images/JS-BackEnd.png)
+![JavaScript BackEnd](./images/JS_BackEnd.png)
