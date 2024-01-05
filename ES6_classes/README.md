@@ -1,0 +1,1 @@
+![JavaScript Classes](../images/ES6-Classes.webp)
