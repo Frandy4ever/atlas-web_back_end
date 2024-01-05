@@ -8,7 +8,7 @@ class HolbertonCourse {
   get privateName() {
     return this._name;
   }
-  
+
   set privateName(newName) {
     this._name = newName;
   }
@@ -29,7 +29,6 @@ class HolbertonCourse {
     this._students = newStudents;
   }
 }
-
 
 const c1 = new HolbertonCourse('ES6', 1, ['Bob', 'Jane']);
 console.log(c1.name);
