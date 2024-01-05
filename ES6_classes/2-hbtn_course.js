@@ -1,6 +1,6 @@
 class HolbertonCourse {
   constructor (name, length, students) {
-    if (typeof name !== 'string' || typeof length !== 'number' || !Array.isArray(students)) {
+    if (typeof name !== 'string' && typeof length !== 'number' && !Array.isArray(students)) {
       throw new TypeError('Invalid attribute type');
     }
     this._name = name;
@@ -19,7 +19,7 @@ class HolbertonCourse {
 
   get privateLength () { return this._length; }
 
-  set privateLength (newLength) {
+  set privateLength(newLength) {
     if (typeof newLength !== 'number') {
       throw new TypeError('Invalid type for newLength');
     }
@@ -28,7 +28,7 @@ class HolbertonCourse {
 
   get privateStudents () { return this._students; }
 
-  set privateStudents (newStudents) {
+  set privateStudents(newStudents) {
     if (!Array.isArray(newStudents)) {
       throw new TypeError('Invalid type for newStudents');
     }
