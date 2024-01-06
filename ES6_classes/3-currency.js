@@ -1,5 +1,5 @@
 export default class Currency {
-  constructor (code, name) {
+  constructor(code, name) {
     if (typeof code === 'string') {
       this._code = code;
     } else {
@@ -23,19 +23,20 @@ export default class Currency {
   set privateCode(newCode) {
     if (typeof newCode !== 'string') {
       throw new Error('Code must be a string!');
+    } else {
+      this._code = newCode;
     }
-    this._code = newCode;
   }
 
   set privateName(newName) {
     if (typeof newName !== 'string') {
       throw new Error('Name must be a string!');
+    } else {
+      this._name = newName;
     }
-    this._name = newName;
   }
 
   displayFullCurrency() {
     return `${this.name} (${this.code})`;
   }
-  
 }
