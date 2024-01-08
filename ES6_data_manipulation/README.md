@@ -1,0 +1,1 @@
+![JavaScript Data Manipulation](./images/Js_data_maipulation.png)
