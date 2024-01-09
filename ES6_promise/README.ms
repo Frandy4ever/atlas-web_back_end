@@ -1,1 +1,0 @@
-![JavaScript Promises](./images/javascript-promise.png)
