@@ -1,7 +1,9 @@
-export default function groceriesList(groceries) {
-  const groceryMap = new Map();
-  for (const item of groceries) {
-    groceryMap.set(item[0], item[1]);
-  }
-  return groceryMap;
+export default function groceriesList() {
+  const groceries = new Map();
+  groceries.set('Apples', 10);
+  groceries.set('Tomatoes', 10);
+  groceries.set('Pasta', 1);
+  groceries.set('Rice', 1);
+  groceries.set('Banana', 5);
+  return groceries;
 }
