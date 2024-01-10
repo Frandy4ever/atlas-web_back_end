@@ -1,12 +1,12 @@
-export default function uploadPhoto() {
+export function uploadPhoto() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         status: 200,
         body: 'photo-profile-1',
       });
-      }, 1000);
-    });
+    }, 1000);
+  });
 }
 
 export function createUser() {
@@ -25,9 +25,14 @@ import { uploadPhoto, createUser } from './utils';
 function handleProfileSignup() {
   const promises = [uploadPhoto(), createUser()];
 
-  Promise.all(promises).then((results) => {
-    const [photo, user] = results;
-    console.error(`${photo.body} ${user.firstName} ${user.lastName}`)
-  })
-  .catch(() => console.error('Signup system offline'));
+  Promise.all(promises)
+    .then((results) => {
+      const [photoResponse, userResponse] = results;
+      console.log(`body: ${photoResponse.body} ${userResponse.firstName} ${userResponse.lastName}`);
+    })
+    .catch((error) => {
+      console.error('Signup system offline');
+    });
 }
+
+handleProfileSignup();
