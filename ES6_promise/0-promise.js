@@ -5,21 +5,3 @@ export default function getResponseFromAPI() {
     }, 500);
   });
 }
-
-function uploadPhoto() {
-  return simulateAPIRequest().then(() => {
-    return {
-      status: 200,
-      body: 'photo-profile-1'
-    };
-  });
-}
-
-function createUser() {
-  return simulateAPIRequest().then(() => {
-    return {
-      firstName: 'Guillaume',
-      lastName: 'Salva'
-    };
-  });
-}
