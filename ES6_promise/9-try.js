@@ -1,8 +1,8 @@
 export default function grardrail(mathFunction) {
   const queue = [];
   try {
-      const result = mathFunction();
-      queue.push(result);
+    const result = mathFunction();
+    queue.push(result);
   } catch (error) {
       queue.push(error);
   } finally {
