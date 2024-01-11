@@ -4,9 +4,9 @@ export default function grardrail(mathFunction) {
     const result = mathFunction();
     queue.push(result);
   } catch (error) {
-      queue.push(error);
+    queue.push(error);
   } finally {
-      queue.push('Guardrail was processed');
+    queue.push('Guardrail was processed');
   }
   return queue;
 }
