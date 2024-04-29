@@ -1,1 +1,1 @@
-![Python Variables Annotation](./images/python_variables_annotation.png)
+![Python Variables Annotation](./images/variable-annotation.png)
