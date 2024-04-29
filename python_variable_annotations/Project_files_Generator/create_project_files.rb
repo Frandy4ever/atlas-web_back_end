@@ -1,8 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/env ruby
 
-import os
-
-# Create all project files and add executable previlleges
+# Create all project files and add executable privileges
 
 # List of filenames
 files = [
@@ -12,13 +10,15 @@ files = [
 ]
 
 # Iterate over each filename
-for file in files:
+files.each do |file|
     # Create the file
-    with open(file, 'w') as f:
+    File.open(file, 'w') do |f|
         # Write the shebang line
         f.write('#!/usr/bin/env python3\n')
+    end
 
     # Set executable permission
-    os.chmod(file, 0o755)
+    File.chmod(0755, file)
+end
 
-print("Project files created successfully.")
+puts "Project files created successfully."
