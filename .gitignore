@@ -133,3 +133,4 @@ dist
 .history
 *.json
 ./ES6_basics/*.json
+ES6_data_manipulation/
