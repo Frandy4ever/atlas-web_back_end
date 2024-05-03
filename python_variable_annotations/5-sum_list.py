@@ -2,7 +2,7 @@
 
 from typing import List
 """
-
+Return the sum of a list of floats as float
 """
 
 
