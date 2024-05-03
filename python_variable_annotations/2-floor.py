@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-
+Function which calculates the floor of a given float
 """
 import math
 
