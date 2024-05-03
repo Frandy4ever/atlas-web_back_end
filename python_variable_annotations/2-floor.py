@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 
 """
-Return a float number as floor.
+
 """
 import math
 
 
-def floor(n: float) -> float:
+def floor(n: float) -> int:
     """
-    Return n as floor
+    Return the floor of the input float n.
 
     Args:
-        n (float): number to return as floor
+        n (float): The input float.
 
     Returns:
-        floor: mutate float n to floor
+        int: floor value of the input float.
     """
     return math.floor(n)
