@@ -22,7 +22,6 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     # Store delays
     delays: float = []
 
-
     async def spawn_wait_random(delay_list):
         """
         Coroutine to spawn wait_random and append delay to delay_list
