@@ -4,7 +4,8 @@
 Async coroutine that takes in a random waiting time
 as integer and return float.
 """
-import random, asyncio
+import random
+import asyncio
 
 
 async def wait_random(max_delay: int = 10) -> float:
