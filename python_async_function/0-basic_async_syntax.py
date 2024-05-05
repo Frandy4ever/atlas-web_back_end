@@ -4,7 +4,7 @@ import asyncio
 
 async def wait_random(max_delay: int = 10) -> float:
     """
-    This function generates a random number between 0 and a received max number
+    Generates a random number between 0 and a received max number
     to use as coroutine delay timer.
 
     Args:
