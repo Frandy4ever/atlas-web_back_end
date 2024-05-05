@@ -17,13 +17,13 @@ async def wait_random(max_delay: int = 10) -> float:
     Return:
         float: lasped time
     """
-    delay = random.uniform(0, max_delay)
+    delay: float = random.uniform(0, max_delay)
     await asyncio.sleep(delay)
     return delay
 
-async def main():
+async def main() -> None:
     """Main fn used to run our wait_random() fn"""
-    delay = await wait_random()
+    delay: float = await wait_random()
     print(delay)
 
 asyncio.run(main())
