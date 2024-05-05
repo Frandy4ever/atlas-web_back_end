@@ -8,7 +8,7 @@ async def wait_random(max_delay: int = 10) -> float:
     to use as coroutine delay timer.
 
     Args:
-        max_delay (int): Received number used as the max for the random selection
+        max_delay (int): random max
 
     Returns:
         float: elapsed time
@@ -18,7 +18,7 @@ async def wait_random(max_delay: int = 10) -> float:
     return delay
 
 async def main() -> None:
-    """Main function used to run our wait_random() function"""
+    """Main fn used to run our wait_random() fn"""
     delay: float = await wait_random()
     print(delay)
 
