@@ -20,7 +20,7 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
         List[float]: A list of delays in ascending order (float values)
     """
     # Store delays
-    delays: float = []
+    delays: List[float] = []
 
     async def spawn_wait_random(delay_list):
         """
