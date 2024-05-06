@@ -15,7 +15,7 @@ def task_wait_random(max_dalay: int) -> asyncio.Task:
         max_delay (int): integer used for creating asyncio task.
 
     Returns:
-        asyncio.task
+        asyncio.task: Representation of the coroutine time.
     """
     task = asyncio.create_task(wait_random(max_dalay))
     return task
