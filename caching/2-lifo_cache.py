@@ -16,7 +16,7 @@ class LIFOCache(BaseCaching):
         if key in self.cache_data:
             value = self.cache_data[key]
             return value
-        
+
     def put(self, key, item):
         """Dict setter"""
         if key and item:
