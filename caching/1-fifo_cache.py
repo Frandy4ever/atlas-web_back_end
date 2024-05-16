@@ -2,6 +2,7 @@
 """Inherit form BaseCaching, a caching system."""
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """This class inherits from BaseCaching"""
     def __init__(self):
@@ -24,7 +25,6 @@ class FIFOCache(BaseCaching):
         self.next_in += 1
         self.data[self.next_in] = key
 
-
     def get(self, key):
         """Dict getter"""
         if key is None or self.cache_data.get(key) is None:
@@ -32,7 +32,7 @@ class FIFOCache(BaseCaching):
         if key in self.cache_data:
             value = self.cache_data[key]
             return value
-    
+
     def put(self, key, item):
         """Dict setter"""
         if key and item:
