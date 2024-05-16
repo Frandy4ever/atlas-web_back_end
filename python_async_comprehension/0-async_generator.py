@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-This script takes on no arguments, runs a coroutine 10 times, 
+This script takes on no arguments, runs a coroutine 10 times,
 asynchronously waits 1sec, then yield a random number 0 through 10.
 """
 import asyncio
