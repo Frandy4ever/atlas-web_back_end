@@ -56,7 +56,7 @@ class Server:
             List[List]: A list containing the data for the specified page.
 
         Raises:
-            AssertionError: 
+            AssertionError:
                 If page or page_size is not a positive integer.
         """
         assert isinstance(page, int) and page > 0,\
