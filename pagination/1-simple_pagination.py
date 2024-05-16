@@ -47,17 +47,22 @@ class Server:
         Obtain a page of data from the dataset.
 
         Args:
-            page (int, optional): The page number to retrieve. Defaults to 1.
-            page_size (int, optional): The number of items per page. Defaults to 10.
+            page (int, optional):
+                The page number to retrieve. Defaults to 1.
+            page_size (int, optional):
+                The number of items per page. Defaults to 10.
 
         Returns:
             List[List]: A list containing the data for the specified page.
 
         Raises:
-            AssertionError: If page or page_size is not a positive integer.
+            AssertionError: 
+                If page or page_size is not a positive integer.
         """
-        assert isinstance(page, int) and page > 0, "Page must be a positive integer"
-        assert isinstance(page_size, int) and page_size > 0, "Page size must be a positive integer"
+        assert isinstance(page, int) and page > 0,\
+            "Page must be a positive integer"
+        assert isinstance(page_size, int) and page_size > 0,\
+            "Page size must be a positive integer"
 
         # Calculate start and end indexes for the requested page
         start, end = index_range(page, page_size)
