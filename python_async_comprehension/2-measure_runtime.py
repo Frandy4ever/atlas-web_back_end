@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-
+"""
+This module runs a coroutine that will execute async_comprehension
+fout times in parallel using ayncio gather.
+"""
 import asyncio
 import time
 async_comprehension = __import__('1-async_comprehension').async_comprehension
+
 
 async def measure_runtime() -> float:
     """
