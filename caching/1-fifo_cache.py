@@ -4,7 +4,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """This class inherits from BaseCaching"""
+    """This class inherits from BaseCaching and uses FIFO algo"""
     def __init__(self):
         super().__init__()
         self.data = {}
