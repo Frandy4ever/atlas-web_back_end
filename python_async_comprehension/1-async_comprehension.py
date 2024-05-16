@@ -6,10 +6,11 @@ runs a coroutine which collects 10
 random numbers using async comprehension
 then return 10 random numbers
 """
+import asyncio
 from typing import List
 async_generator = __import__('0-async_generator').async_generator
 
 
-async def async_comprehension() -> List[int]:
+async def async_comprehension() -> List[float]:
     """Returns the randomly collected numbers"""
     return [num async for num in async_generator()]
