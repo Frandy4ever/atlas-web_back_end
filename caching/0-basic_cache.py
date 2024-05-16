@@ -9,9 +9,8 @@ class BasicCache(BaseCaching):
         """Dict getter"""
         if key is None or self.cache_data.get(key) is None:
             return None
-        
-        return self.cache_data.get(key)
 
+        return self.cache_data.get(key)
 
     def put(self, key, item):
         """Dict setter"""
