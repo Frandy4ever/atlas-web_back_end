@@ -2,9 +2,12 @@
 
 """This program will call filter_datum that returns
 the log message obfuscated."""
-import re
 from typing import List
+import re
 import logging
+import mysql.connector
+import os
+
 PII_FIELDS = ('name', 'password', 'phone', 'email', 'ssn')
 
 
@@ -50,3 +53,13 @@ def get_logger() -> logging.Logger:
     logger.addHandler(handler)
 
     return logger
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """This program returns a connector to a database."""
+    return mysql.connector.connect(
+        host=os.environ.get('PERSONAL-DATA-DB_HOST', 'localhost'),
+        database=os.environ.get('PERSONAL_DATA_DB_NAME', 'root'),
+        user=os.environ.get('PERSONAL_DATA_DB_USERNAME'),
+        password=os.environ.get('PERSONAL_DATA_DB_PASSWORD', '')
+    )
