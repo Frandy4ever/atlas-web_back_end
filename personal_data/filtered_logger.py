@@ -7,6 +7,7 @@ from typing import List
 import logging
 PII_FIELDS = ('name', 'password', 'phone', 'email', 'ssn')
 
+
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class
         """
@@ -47,5 +48,5 @@ def get_logger() -> logging.Logger:
     are considered PII."""
     handler.setFormatter(RedactingFormatter(PII_FIELDS))
     logger.addHandler(handler)
-    
+
     return logger
