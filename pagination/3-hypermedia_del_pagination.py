@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 Deletion-resilient hypermedia pagination
 """
@@ -31,21 +32,18 @@ class Server:
         """Dataset indexed by sorting position, starting at 0"""
         if self.__indexed_dataset is None:
             dataset = self.dataset()
-            self.__indexed_dataset = {i: dataset[i]\
-                                       for i in range(len(dataset))}
+            self.__indexed_dataset = {i: dataset[i] for i in range(len(dataset))}
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None,\
-                         page_size: int = 10) -> Dict[str, Any]:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[str, Any]:
         """
-        Obtain a page of data from the dataset
-        with deletion-resilient pagination.
+        Obtain a page of data from the dataset with deletion-resilient pagination.
 
         Args:
-            index (int, optional): The starting
-            index of the page. Defaults to None.
-            page_size (int, optional): The number
-            of items per page. Defaults to 10.
+            index (int, optional): The starting index
+            of the page. Defaults to None.
+            page_size (int, optional): The number of
+            items per page. Defaults to 10.
 
         Returns:
             Dict[str, Any]: A dictionary containing pagination
@@ -61,15 +59,13 @@ class Server:
         current_index = index
         items_retrieved = 0
 
-        while items_retrieved < page_size and\
-              current_index < len(indexed_data):
+        while items_retrieved < page_size and current_index < len(indexed_data):
             if current_index in indexed_data:
                 data.append(indexed_data[current_index])
                 items_retrieved += 1
             current_index += 1
 
-        next_index = current_index if\
-              current_index < len(indexed_data) else None
+        next_index = current_index if current_index < len(indexed_data) else None
 
         return {
             "index": index,
