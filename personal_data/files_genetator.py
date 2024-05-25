@@ -6,9 +6,7 @@ import os
 
 """List of files names"""
 files = [
-    "filtered_logger.py", "filtered_logger.py",
-    "filtered_logger.py", "filtered_logger.py",
-    "filtered_logger.py", "encrypt_password.py",
+    "filtered_logger.py",
     "encrypt_password.py"
 ]
 
