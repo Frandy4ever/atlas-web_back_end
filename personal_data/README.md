@@ -1,0 +1,1 @@
+![Personal data with Python](./images/personal_data.png)
