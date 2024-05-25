@@ -5,7 +5,7 @@ the log message obfuscated."""
 import re
 from typing import List
 import logging
-
+PII_FIELDS = ('name', 'password', 'phone', 'email', 'ssn')
 
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class
@@ -35,3 +35,17 @@ def filter_datum(fields: List[str],
         message = re.sub(fr'{i}=.+?{separator}',
                          f'{i}={redaction}{separator}', message)
     return message
+
+
+def get_logger() -> logging.Logger:
+    """This program returns a logging.Logger object"""
+    logger = logging.getLogger('user_data')
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+    handler = logging.StreamHandler()
+    """Containing the fields from user_data.csv that
+    are considered PII."""
+    handler.setFormatter(RedactingFormatter(PII_FIELDS))
+    logger.addHandler(handler)
+    
+    return logger
