@@ -7,11 +7,11 @@ import binascii
 
 
 class BasicAuth(Auth):
-    '''self descriptive'''
+    '''This program handles all basic authentications'''
 
     def extract_base64_authorization_header(
             self, authorization_header: str) -> str:
-        '''self descriptive'''
+        '''Returns part of authentication heade as base64'''
         if authorization_header and isinstance(
                 authorization_header,
                 str) and authorization_header.startswith("Basic "):
@@ -19,7 +19,7 @@ class BasicAuth(Auth):
 
     def decode_base64_authorization_header(
             self, base64_auth_header: str) -> str:
-        '''self descriptive'''
+        '''Returns decoded value of base64 string'''
         if base64_auth_header and isinstance(
                 base64_auth_header, str):
             try:
@@ -31,10 +31,29 @@ class BasicAuth(Auth):
 
     def extract_user_credentials(
             self, decoded_base64_authorization_header: str) -> (str, str):
-        '''self descriptive'''
+        '''Returns user info'''
         if (decoded_base64_authorization_header and
                 isinstance(decoded_base64_authorization_header, str) and
                 ":" in decoded_base64_authorization_header):
             res = decoded_base64_authorization_header.split(":", 1)
             return (res[0], res[1])
         return (None, None)
+
+    def user_object_from_credentials(self, user_email: str,
+                                     user_pwd: str) -> TypeVar('User'):
+        '''Returns user instance base on their info'''
+        if user_email is None or not isinstance(user_email, str):
+            return None
+
+        if user_pwd is None or not isinstance(user_pwd, str):
+            return None
+
+        try:
+            users = User.search({'email': user_email})
+        except Exception:
+            return None
+
+        for user in users:
+            if user.is_valid_password(user_pwd):
+                return user
+        return None
