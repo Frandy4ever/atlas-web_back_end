@@ -92,7 +92,7 @@ class Auth:
             raise ValueError
         pwd = _hash_password(password)
         self._db.update_user(user.id, hashed_password=pwd, reset_token=None)
- 
+
 
 def _generate_uuid() -> str:
     """ return a string representation of a new UUID """
