@@ -71,18 +71,21 @@ def main() -> None:
     db = get_db()
     cursor = db.cursor()
     cursor.execute("SELECT * FROM users;")
-    headers = [field[0] for field in cursor.description]
-    logger = get_logger()
-
-    for row in cursor:
-        info_answer = ""
-        for j, r in zip(row, headers):
-            info_answer += f"{r}={(j)}; "
-        logger.info(info_answer)
-
+    result = cursor.fetchall()
+    
+    for row in result:
+        message = f"name={row[0]}; " + \
+                  f"email={row[1]}; " + \
+                  f"phone={row[2]}; " + \
+                  f"ssn={row[3]}; " + \
+                  f"password={row[4]};"
+        print(message)
+        log_record = logging.LogRecord("my_logger", logging.INFO,
+                                       None, None, message, None, None)
+        formatter = RedactingFormatter(PII_FIELDS)
+        formatter.format(log_record)
     cursor.close()
     db.close()
-
 
 if __name__ == ('__main__'):
     main()
