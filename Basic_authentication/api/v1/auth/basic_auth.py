@@ -5,6 +5,7 @@ from base64 import b64decode
 import base64
 import binascii
 
+
 class BasicAuth(Auth):
     '''self descriptive'''
 
@@ -15,7 +16,7 @@ class BasicAuth(Auth):
                 authorization_header,
                 str) and authorization_header.startswith("Basic "):
             return authorization_header[6:]
-    
+
     def decode_base64_authorization_header(
             self, base64_auth_header: str) -> str:
         '''self descriptive'''
