@@ -1,0 +1,1 @@
+![Session Authentication with Python](./images/session_auth.jpg)
