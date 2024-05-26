@@ -18,12 +18,12 @@ class Auth:
         self._db = DB()
 
     def register_user(self, email: str, password: str) -> User:
-        """ Returns user object with mandatory email and password verification """
+        """ Returns user object with mandatory
+        email and password verification """
         try:
-            user = self._db.find_user_by(email=email)
+            self._db.find_user_by(email=email)
         except NoResultFound:
-            pwd = _hash_password(password)
-            user = self._db.add_user(email, pwd)
-            return user
+            new_registry = self._db.add_user(email, _hash_password(password))
+            return new_registry
         else:
-            raise ValueError('User {email} already exists')
+            raise ValueError(f'User {email} already exists')
