@@ -33,6 +33,16 @@ class Auth:
         else:
             raise ValueError(f'User {email} already exists')
 
+    def valid_login(self, email: str, password: str) -> bool:
+        """ credentials validation, return a boolean """
+        try:
+            user = self._db.find_user_by(email=email)
+        except NoResultFound:
+            return False
+        else:
+            return bcrypt.checkpw(password=password.encode('utf-8'),
+                                  hashed_password=user.hashed_password)
+
 
 def _generate_uuid() -> str:
     """ return a string representation of a new UUID """
