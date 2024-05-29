@@ -84,6 +84,17 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        """ It is part of the unittest.TestCase API
+        """ unittest.TestCase API
         method to stop the patcher """
         cls.get_patcher.stop()
+
+
+    def test_public_repos(self):
+        """Test public repos """
+
+    def test_public_repos_with_license(self):
+        """Test public with license"""
+
+
+if __name__ == '__main__':
+    unittest.main()
