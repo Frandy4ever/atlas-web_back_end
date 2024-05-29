@@ -29,7 +29,6 @@ class TestGithubOrgClient(unittest.TestCase):
     @parameterized.expand([
         ("random-url", {'repos_url': 'http://some_url.com'})
     ])
-
     def test_public_repos_url(self):
         """ Test GithubOrgClient._public_repos_url """
         with patch.object(GithubOrgClient,
