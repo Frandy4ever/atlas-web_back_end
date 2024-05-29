@@ -4,7 +4,7 @@
 import unittest
 import json
 from unittest.mock import patch, PropertyMock, Mock
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
 from urllib.error import HTTPError
@@ -69,3 +69,21 @@ class TestGithubOrgClient(unittest.TestCase):
         test_client = GithubOrgClient("holberton")
         test_return = test_client.has_license(repo, license_key)
         self.assertEqual(expected_return, test_return)
+
+
+@parameterized_class(['org_payload', 'repos_payload',
+                      'expected_repos', 'apache2_repos'], TEST_PAYLOAD)
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """Integration test"""
+    @classmethod
+    def setUpClass(cls):
+        cls.get_patcher = patch('requests.get', side_effect=[
+            cls.org_payload, cls.repos_payload
+        ])
+        cls.mocked_get = cls.get_patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        """ It is part of the unittest.TestCase API
+        method to stop the patcher """
+        cls.get_patcher.stop()
