@@ -1,0 +1,1 @@
+![Basic Redis](./images/basic_redis.webp)
