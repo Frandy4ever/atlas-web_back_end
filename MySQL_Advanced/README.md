@@ -1,0 +1,1 @@
+![Advanced MySQL](./images/advanced_mysql.jpg)
