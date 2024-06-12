@@ -4,6 +4,19 @@
 import redis
 import uuid
 from typing import Union, Optional, Any, Callable
+from functools import wraps
+
+
+def count_calls(method: Callable) -> Callable:
+    """Counts number of times methods of the Cache class are called """
+    key = method.__qualname__
+
+    @wraps(method)
+    def wrapper(self, *args, **kwds):
+        """ wrapped function """
+        self._redis.incr(key)
+        return method(self, *args, **kwds)
+    return wrapper
 
 
 class Cache:
