@@ -1,2 +1,2 @@
-// Lists all MongoDB databases in cli
+// Lists all MongoDB databases
 show dbs
