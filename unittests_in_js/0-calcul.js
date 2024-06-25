@@ -1,13 +1,15 @@
 'use strict';
 
 /**
- * Calculates the sum of two numbers after rounding them.
+ * Sums two numbers after rounding them.
  * @param {number} a - The first number.
  * @param {number} b - The second number.
- * @returns {number} The rounded sum of a and b.
+ * @returns {number} The sum of the rounded numbers.
  */
 const calculateNumber = (a, b) => {
-  return Math.ceil(a) + Math.round(b);
+  const roundedA = Math.round(a);
+  const roundedB = Math.round(b);
+  return roundedA + roundedB;
 };
 
 module.exports = calculateNumber;
