@@ -7,11 +7,11 @@
  * @throws {TypeError} If either parameter is not a number or cannot be converted to a number.
  */
 module.exports = function calculateNumber(a, b = 0) {
-  const aNum = Number(a);
-  const bNum = Number(b);
+  const num_a = Number(a);
+  const num_b = Number(b);
   
-  if (Number.isNaN(aNum) || Number.isNaN(bNum))
+  if (Number.isNaN(num_a) || Number.isNaN(num_b))
     throw TypeError('Parameters must be numbers');
   
-  return Math.round(aNum) + Math.round(bNum);
+  return Math.round(num_a) + Math.round(num_b);
 };
