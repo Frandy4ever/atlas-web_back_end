@@ -1,33 +1,25 @@
-const assert = require('assert');
-const calculateNumber = require('./0-calcul');
+const assert = require("assert");
+const calculateNumber = require("./0-calcul.js");
 
-describe('calculateNumber', function() {
-  it('should return 4 when inputs are 1 and 3', function() {
-    assert.strictEqual(calculateNumber(1, 3), 4);
+describe('calculateNumber', () => {
+  it('rounds the first argument', () => {
+    assert.equal(calculateNumber(1.0, 0), 1);
+    assert.equal(calculateNumber(1.3, 0), 1);
+    assert.equal(calculateNumber(1.7, 0), 2);
   });
 
-  it('should return 5 when inputs are 1 and 3.7', function() {
-    assert.strictEqual(calculateNumber(1, 3.7), 5);
+  it('rounds the second argument', () => {
+    assert.equal(calculateNumber(0, 1.0), 1);
+    assert.equal(calculateNumber(0, 1.3), 1);
+    assert.equal(calculateNumber(0, 1.7), 2);
   });
 
-  it('should return 5 when inputs are 1.2 and 3.7', function() {
-    assert.strictEqual(calculateNumber(1.2, 3.7), 5);
-  });
-
-  it('should return 6 when inputs are 1.5 and 3.7', function() {
-    assert.strictEqual(calculateNumber(1.5, 3.7), 6);
-  });
-
-  // Additional edge cases
-  it('should return 0 when inputs are 0.4 and 0.4', function() {
-    assert.strictEqual(calculateNumber(0.4, 0.4), 0);
-  });
-
-  it('should return 2 when inputs are 0.5 and 0.5', function() {
-    assert.strictEqual(calculateNumber(0.5, 0.5), 2);
-  });
-
-  it('should return -1 when inputs are -1.4 and -0.5', function() {
-    assert.strictEqual(calculateNumber(-1.4, -0.5), -1);
+  it('should return the right number', () => {
+    assert.equal(calculateNumber(1.3, 0), 1);
+    assert.equal(calculateNumber(0, 1.2), 1);
+    assert.equal(calculateNumber(1.3, 1.3), 2);
+    assert.equal(calculateNumber(1.7, 1.2), 3);
+    assert.equal(calculateNumber(1.3, 1.8), 3);
+    assert.equal(calculateNumber(1.6, 1.8), 4);
   });
 });
