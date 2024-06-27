@@ -6,12 +6,8 @@
  * @returns {number} The sum of the two rounded numbers.
  * @throws {TypeError} If either parameter is not a number or cannot be converted to a number.
  */
-module.exports = function calculateNumber(a, b = 0) {
-  const numA = Number(a);
-  const numB = Number(b);
-  
-  if (Number.isNaN(numA) || Number.isNaN(numB))
-    throw TypeError('Parameters must be numbers');
-  
-  return Math.round(numA) + Math.round(numB);
-};
+function calculateNumber(a, b) {
+  return Math.round(a) + Math.round(b);
+}
+
+module.exports = calculateNumber;
