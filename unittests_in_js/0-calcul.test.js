@@ -1,25 +1,55 @@
-const assert = require("assert");
-const calculateNumber = require("./0-calcul.js");
+const assert = require('assert');
+const calculateNumber = require('./0-calcul');
 
 describe('calculateNumber', () => {
-  it('rounds the first argument', () => {
-    assert.equal(calculateNumber(1.0, 0), 1);
-    assert.equal(calculateNumber(1.3, 0), 1);
-    assert.equal(calculateNumber(1.7, 0), 2);
+  it('should round the first argument correctly', () => {
+    assert.strictEqual(calculateNumber(1.0, 0), 1);
+    assert.strictEqual(calculateNumber(1.3, 0), 1);
+    assert.strictEqual(calculateNumber(1.7, 0), 2);
   });
 
-  it('rounds the second argument', () => {
-    assert.equal(calculateNumber(0, 1.0), 1);
-    assert.equal(calculateNumber(0, 1.3), 1);
-    assert.equal(calculateNumber(0, 1.7), 2);
+  it('should round the second argument correctly', () => {
+    assert.strictEqual(calculateNumber(0, 1.0), 1);
+    assert.strictEqual(calculateNumber(0, 1.3), 1);
+    assert.strictEqual(calculateNumber(0, 1.7), 2);
   });
 
-  it('should return the right number', () => {
-    assert.equal(calculateNumber(1.3, 0), 1);
-    assert.equal(calculateNumber(0, 1.2), 1);
-    assert.equal(calculateNumber(1.3, 1.3), 2);
-    assert.equal(calculateNumber(1.7, 1.2), 3);
-    assert.equal(calculateNumber(1.3, 1.8), 3);
-    assert.equal(calculateNumber(1.6, 1.8), 4);
+  it('should return the correct rounded sum', () => {
+    assert.strictEqual(calculateNumber(1.3, 0), 1);
+    assert.strictEqual(calculateNumber(0, 1.2), 1);
+    assert.strictEqual(calculateNumber(1.3, 1.3), 2);
+    assert.strictEqual(calculateNumber(1.7, 1.2), 3);
+    assert.strictEqual(calculateNumber(1.3, 1.8), 3);
+    assert.strictEqual(calculateNumber(1.6, 1.8), 4);
+  });
+
+  it('should handle edge cases correctly', () => {
+    assert.strictEqual(calculateNumber(1, 3.7), 5);
+    assert.strictEqual(calculateNumber(1.2, 3.7), 5);
+    assert.strictEqual(calculateNumber(1.5, 3.7), 6);
+    assert.strictEqual(calculateNumber(0.1, 0), 0);
+    assert.strictEqual(calculateNumber(1.4, -4.5), -3);
+  });
+
+  it('should return the rounded number if only one is provided', () => {
+    assert.strictEqual(calculateNumber(2), 2);
+    assert.strictEqual(calculateNumber(2.7), 3);
+  });
+
+  it('should cast non-numbers into numbers', () => {
+    assert.strictEqual(calculateNumber(true, '3'), 4);
+    assert.strictEqual(calculateNumber(1, '3.7'), 5);
+    assert.strictEqual(calculateNumber('1.2', 3.7), 5);
+  });
+
+  it('should throw TypeError if either parameter cannot be coerced to a number', () => {
+    assert.throws(() => calculateNumber('hello'), {
+      name: 'TypeError',
+      message: 'Parameters must be numbers'
+    });
+    assert.throws(() => calculateNumber(1.2, 'dog'), {
+      name: 'TypeError',
+      message: 'Parameters must be numbers'
+    });
   });
 });
