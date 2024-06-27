@@ -1,1 +1,1 @@
-![Queuing System in JavaScript](./images/Queue-in-JavaScript.jpg)
+![JavaScript Queuing System](./images/Queue-in-JavaScript.jpg)
